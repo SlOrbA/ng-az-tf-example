@@ -1,16 +1,17 @@
 # Create a resource group for the Angular app
 resource "azurerm_resource_group" "example" {
   name     = "example"
-  location = "${var.Location}"
+  location = "westeurope"
 }
 
 resource "random_string" "example" {
-  length = 8
-  upper = false
+  length  = 8
+  upper   = false
+  special = false
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "example-${random_string.example.result}"
+  name                     = "example${random_string.example.result}"
   location                 = "${azurerm_resource_group.example.location}"
   resource_group_name      = "${azurerm_resource_group.example.name}"
   account_kind             = "StorageV2"
@@ -24,7 +25,7 @@ resource "azurerm_storage_account" "example" {
 
 resource "null_resource" "example" {
   provisioner "local-exec" {
-    command     = "az storage blob upload-batch --destination '$web' --source ../app/dist/example"
+    command     = "az storage blob upload-batch --destination '$web' --source ../example-app/dist/example-app"
     environment = {
       AZURE_STORAGE_ACCOUNT = "${azurerm_storage_account.example.name}"
       AZURE_STORAGE_KEY     = "${azurerm_storage_account.example.primary_access_key}"
