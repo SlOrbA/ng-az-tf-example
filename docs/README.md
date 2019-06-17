@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+# ng-az-tf-example
 
-You can use the [editor on GitHub](https://github.com/SlOrbA/ng-az-tf-example/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Welcome to Angular App on Azure Storage with Terraform tutorial
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The goal is to setup a Angular Application with the most automation and minimal costs
 
-### Markdown
+### Requirements
+- Angular CLI
+- Azure CLI
+- Terraform v0.12 or newer
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SlOrbA/ng-az-tf-example/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Steps
+1. git clone https://github.com/SlOrbA/ng-az-tf-example
+1. cd ng-az-tf-example/example-app
+1. bg --build
+1. cd ../terraform
+1. terraform plan
+1. review the changes terraform is proposing
+1. terraform apply
