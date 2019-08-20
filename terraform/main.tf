@@ -23,10 +23,10 @@ resource "azurerm_storage_account" "example" {
   }
 }
 
-resource "azurerm_storage_container" "web" {
-  name                     = "$web"
-  storage_account_name     = "${azurerm_storage_account.example.name}"
-}
+#resource "azurerm_storage_container" "web" {
+#  name                     = "$web"
+#  storage_account_name     = "${azurerm_storage_account.example.name}"
+#}
 
 resource "null_resource" "example" {
   provisioner "local-exec" {
