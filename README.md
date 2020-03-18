@@ -2,7 +2,7 @@
 Angular SPA hosted in Azure Storage managed with Terraform
 
 ### Required software
-* Angular CLI (verified with 8.1.1 ARM)
+* Angular CLI (verified with 8.3.21 ARM)
 * Azure CLI (verifed with 2.0.64 ARM)
 * Terraform (verfied with 0.12.2 ARM)
 
