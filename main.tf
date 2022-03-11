@@ -23,7 +23,7 @@ resource "azurerm_storage_account" "example" {
   account_replication_type = "LRS"
 
   static_website {
-    error_404_document = "404.html"
+    error_404_document = "index.html"
     index_document     = "index.html"
   }
 
@@ -36,7 +36,7 @@ resource "azurerm_storage_account" "example" {
 
 resource "null_resource" "example" {
   provisioner "local-exec" {
-    command = "az storage blob upload-batch --destination '$web' --source ../example-app/dist/example-app"
+    command = "az storage blob upload-batch --destination '$web' --source example-app/dist/example-app"
     environment = {
       AZURE_STORAGE_ACCOUNT = azurerm_storage_account.example.name
       AZURE_STORAGE_KEY     = azurerm_storage_account.example.primary_access_key
