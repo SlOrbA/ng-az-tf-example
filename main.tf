@@ -4,12 +4,12 @@ provider "azurerm" {
 
 # Create a resource group for the Angular app
 resource "azurerm_resource_group" "example" {
-  name     = "example"
+  name     = "example-${random_string.example.result}"
   location = "westeurope"
 }
 
 resource "random_string" "example" {
-  length  = 8
+  length  = 4 
   upper   = false
   special = false
 }
