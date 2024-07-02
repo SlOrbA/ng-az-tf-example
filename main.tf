@@ -29,10 +29,12 @@ resource "azurerm_storage_account" "example" {
 
 }
 
-#resource "azurerm_storage_container" "web" {
-#  name                     = "$web"
-#  storage_account_name     = azurerm_storage_account.example.name
-#}
+
+resource "null_resource" "example-app" {
+  provisioner "local-exec" {
+    command = "cd example-app;yarn;yarn ng build"
+  }
+}
 
 resource "null_resource" "example" {
   provisioner "local-exec" {
@@ -42,7 +44,7 @@ resource "null_resource" "example" {
       AZURE_STORAGE_KEY     = azurerm_storage_account.example.primary_access_key
     }
   }
-  depends_on = [azurerm_storage_account.example]
+  depends_on = [azurerm_storage_account.example,null_resource.example-app]
 }
 
 resource "azurerm_cdn_profile" "example" {
