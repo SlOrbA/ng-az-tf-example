@@ -32,13 +32,13 @@ resource "azurerm_storage_account" "example" {
 
 resource "null_resource" "example-app" {
   provisioner "local-exec" {
-    command = "cd example-app;yarn;yarn ng build"
+    command = "cd example-app;yarn;yarn build"
   }
 }
 
 resource "null_resource" "example" {
   provisioner "local-exec" {
-    command = "az storage blob upload-batch --destination '$web' --source example-app/dist/example-app"
+    command = "az storage blob upload-batch --destination '$web' --source example-app/dist/example-app/browser"
     environment = {
       AZURE_STORAGE_ACCOUNT = azurerm_storage_account.example.name
       AZURE_STORAGE_KEY     = azurerm_storage_account.example.primary_access_key
