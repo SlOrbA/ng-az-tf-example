@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'example-app';
   constructor(private router: Router)
   {
-    var angularPlugin = new AngularPlugin();
+    const angularPlugin = new AngularPlugin();
     const appInsights = new ApplicationInsights({ config: {
     instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
     extensions: [angularPlugin],
