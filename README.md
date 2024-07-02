@@ -11,9 +11,7 @@ You need to be logged in with the Azure CLI and the subscription you want to dep
 
 ## Steps
 1. `git clone https://github.com/SlOrbA/ng-az-tf-example`
-1. `cd ng-az-tf-example/example-app`
-1. `ng build`
-1. `cd ..`
+1. `cd ng-az-tf-example`
 1. `terraform init`
 1. `terraform plan`
 1. review the changes terraform is proposing
